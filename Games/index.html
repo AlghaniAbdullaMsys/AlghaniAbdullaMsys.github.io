@@ -21,6 +21,9 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
 
+        if (urlParams.has('lobby'))
+            console.log('Lobby: '+urlParams.get('lobby'));
+
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
         function isIOS() {
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
@@ -44,12 +47,12 @@
             }
         }
         function ExitGame(val, token) {
-            console.log('[EXIT] Exit code: ' + val);
-            console.log('[EXIT] Token: ' + token);
+            alert('[EXIT] Exit code: ' + val);
+            alert('[EXIT] Token: ' + token);
 
             if (urlParams.has('lobby')) {
                 var lob = urlParams.get('lobby');
-                window.location.href = lob + '&token=' + token;
+                window.location.href = lob + '?token=' + token;
             } else {
                 if (isIOS()) {
                     try {
@@ -98,11 +101,11 @@
       //}
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/ELS(07-26-22_1500).loader.js";
+      var loaderUrl = buildUrl + "/ELS(07-26-22_1727).loader.js";
       var config = {
-        dataUrl: buildUrl + "/ELS(07-26-22_1500).data",
-        frameworkUrl: buildUrl + "/ELS(07-26-22_1500).framework.js",
-        codeUrl: buildUrl + "/ELS(07-26-22_1500).wasm",
+        dataUrl: buildUrl + "/ELS(07-26-22_1727).data",
+        frameworkUrl: buildUrl + "/ELS(07-26-22_1727).framework.js",
+        codeUrl: buildUrl + "/ELS(07-26-22_1727).wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Multisys Technologies Corporation",
         productName: "gamebox-elesi",
