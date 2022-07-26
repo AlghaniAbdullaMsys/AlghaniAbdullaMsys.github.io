@@ -44,6 +44,9 @@
             }
         }
         function ExitGame(val, token) {
+            console.log('[EXIT] Exit code: ' + val);
+            console.log('[EXIT] Token: ' + token);
+
             if (urlParams.has('lobby')) {
                 var lob = urlParams.get('lobby');
                 window.location.href = lob + '&token=' + token;
@@ -95,11 +98,11 @@
       //}
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/ELS(07-20-22_1509).loader.js";
+      var loaderUrl = buildUrl + "/ELS(07-26-22_1500).loader.js";
       var config = {
-        dataUrl: buildUrl + "/ELS(07-20-22_1509).data",
-        frameworkUrl: buildUrl + "/ELS(07-20-22_1509).framework.js",
-        codeUrl: buildUrl + "/ELS(07-20-22_1509).wasm",
+        dataUrl: buildUrl + "/ELS(07-26-22_1500).data",
+        frameworkUrl: buildUrl + "/ELS(07-26-22_1500).framework.js",
+        codeUrl: buildUrl + "/ELS(07-26-22_1500).wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Multisys Technologies Corporation",
         productName: "gamebox-elesi",
