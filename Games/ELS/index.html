@@ -97,11 +97,11 @@
       //}
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/ELS(08-09-22_1358).loader.js";
+      var loaderUrl = buildUrl + "/ELS(08-12-22_0940).loader.js";
       var config = {
-        dataUrl: buildUrl + "/ELS(08-09-22_1358).data",
-        frameworkUrl: buildUrl + "/ELS(08-09-22_1358).framework.js",
-        codeUrl: buildUrl + "/ELS(08-09-22_1358).wasm",
+        dataUrl: buildUrl + "/ELS(08-12-22_0940).data",
+        frameworkUrl: buildUrl + "/ELS(08-12-22_0940).framework.js",
+        codeUrl: buildUrl + "/ELS(08-12-22_0940).wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Multisys Technologies Corporation",
         productName: "gamebox-elesi",
@@ -167,12 +167,12 @@
             function handleVisibilityChange(hiddenState, reason) {
                 if (hiddenState) {
                     if (isPageVisible) {
-                        console.log('visibility: hidden', reason);
+                        //console.log('visibility: hidden', reason);
                         isPageVisible = false;
                         unityInstance.SendMessage("[Bridge]", "TogglePause", "PAUSED");
                     }
                 } else {
-                    console.log('visibility: restored', reason);
+                    //console.log('visibility: restored', reason);
                     isPageVisible = true;
                     unityInstance.SendMessage("[Bridge]", "TogglePause", "UNPAUSED");
                 }

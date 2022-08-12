@@ -1,0 +1,23 @@
+html{overflow:hidden}
+body { padding: 0; margin: 0; background-color: black}
+#webgl-content {position: absolute; background: #000000 }
+#webgl-content.unity-desktop { left: 50%; top: 50%; transform: translate(-50%, -50%) }
+#webgl-content.unity-mobile { width: 100%; height: 100% }
+
+#unityContainer {background-image: url('base-min.webp'); background-size: 100% 100%; background-position: center; background-repeat: no-repeat;}
+.unity-mobile #unityContainer { width: 100%; height: 100% }
+
+#back-button {
+    position: fixed;
+    left: 2%;
+    top: 2%;
+
+    background-image: url('back-min.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+}

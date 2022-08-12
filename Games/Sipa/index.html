@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>Ayos Games | Sipa</title>
+    <link rel="stylesheet" href="TemplateData/style.css">
+</head>
+<body>
+    <div id="back-button" onclick="Back()"></div>
+    <div id="webgl-content" class="unity-desktop">
+        <div id="unityContainer" style="width: 450px; height: 800px;">
+        </div>
+        <script>
+
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            function isIOS() {
+                if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            function isAndroid() {
+                return (/android/i.test(userAgent));
+            }
+            function sendMessageToUnity(message) {
+                if (isIOS()) {
+                    try {
+                        webkit.messageHandlers.UnityInAppBrowser.postMessage(message);
+                    } catch (err) {
+                        console.log('Can not reach native code');
+                    }
+                } else if (isAndroid()) {
+                    UnityInAppBrowser.sendMessageFromJS(message);
+                }
+            }
+
+            var canvas = document.querySelector("#unityContainer");
+            var content = document.querySelector("#webgl-content");
+            var backBtn = document.querySelector("#back-button");
+            function Resize() {
+                if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                    content.className = "unity-mobile";
+                    canvas.style.width = "100%";
+                    canvas.style.height = "100%";
+                } else {
+                    canvas.style.width = "450px";
+                    canvas.style.height = "800px";
+                }
+
+                if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    backBtn.style.width = "100x";
+                    backBtn.style.height = "100px";
+
+                }
+                else {
+                    backBtn.style.height = "100px";
+                    backBtn.style.height = "100px";
+                }
+            }
+            Resize();
+
+            function Back() {
+                //try {
+                    if (/Android/i.test(navigator.userAgent))
+                        sendMessageToUnity("Exit",0);
+                    else
+                        location.href = "uniwebview://Exit";
+                //}
+                //catch (err) {
+                //    alert("You pressed the back button!");
+                //}
+            }
+        </script>
+    </div>
+
+</body>
+</html>
